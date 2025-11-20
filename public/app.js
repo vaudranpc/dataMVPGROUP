@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setupForm();
 });
 
+
+const now = new Date();
+const currentKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+
+if (row.month === currentKey) tr.classList.add("highlight");
 function setupForm() {
   const form = document.getElementById('revenue-form');
   const message = document.getElementById('form-message');
@@ -61,7 +66,7 @@ async function loadSummary() {
 
 async function loadTable() {
   try {
-    const res = await fetch('/api/revenues');
+    const res = await fetch('https://datamvpgroup.onrender.com/api/revenues');
     if (!res.ok) throw new Error('Erreur chargement revenus');
     const revenues = await res.json();
 
@@ -119,6 +124,50 @@ function renderTable(revenues) {
   const tbody = document.querySelector('#revenue-table tbody');
   tbody.innerHTML = '';
 
+  const products = ["Politik 225", "MVP Foot", "Radio MVP Foot"];
+
+  // Regrouper par mois + produit
+  const map = {};
+  revenues.forEach(r => {
+    const d = new Date(r.date);
+    const keyMonth = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+
+    if (!map[keyMonth]) {
+      map[keyMonth] = {
+        month: keyMonth,
+        "Politik 225": 0,
+        "MVP Foot": 0,
+        "Radio MVP Foot": 0,
+        total: 0
+      };
+    }
+
+    map[keyMonth][r.product] += r.amount;
+    map[keyMonth].total += r.amount;
+  });
+
+  // Convertir Map en array trié
+  const rows = Object.values(map).sort((a, b) => a.month.localeCompare(b.month));
+
+  // Afficher chaque ligne
+  rows.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${row.month}</td>
+      <td>${row["Politik 225"].toFixed(2)}</td>
+      <td>${row["MVP Foot"].toFixed(2)}</td>
+      <td>${row["Radio MVP Foot"].toFixed(2)}</td>
+      <td><strong>${row.total.toFixed(2)}</strong></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+/*
+function renderTable(revenues) {
+  const tbody = document.querySelector('#revenue-table tbody');
+  tbody.innerHTML = '';
+
   // Regrouper par mois + produit
   const map = {};
   revenues.forEach(r => {
@@ -136,7 +185,7 @@ function renderTable(revenues) {
     map[key].total += r.amount;
   });
 
-  const rows = Object.values(map).sort((a, b) => a.month.localeCompare(b.month));
+  /*const rows = Object.values(map).sort((a, b) => a.month.localeCompare(b.month));
 
   rows.forEach(row => {
     const tr = document.createElement('tr');
@@ -146,8 +195,24 @@ function renderTable(revenues) {
       <td>${row.total.toFixed(2)}</td>
     `;
     tbody.appendChild(tr);
+  }); 
+
+  const rows = Object.values(map).sort((a, b) => a.month.localeCompare(b.month));
+
+  rows.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${row.month}</td>
+      <td>${row.product[0]}</td>
+           <td>${row.product[1]}</td>
+                <td>${row.product[2]}</td>
+      <td>${row.total.toFixed(2)}</td>
+    `;
+    tbody.appendChild(tr);
   });
-}
+
+
+}*/
 
 function renderChart(summary, year) {
   const ctx = document.getElementById('revenueChart').getContext('2d');

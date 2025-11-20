@@ -192,3 +192,8 @@ button[type="submit"]:active {
   background: #020617;
   font-size: 0.8rem;
 }
+
+.highlight {
+  background-color: #f97316 !important;
+  font-weight: bold;
+}
