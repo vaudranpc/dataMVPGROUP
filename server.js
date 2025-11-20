@@ -35,10 +35,16 @@ app.get('/api/revenues', async (req, res) => {
 // 2) Ajouter une nouvelle entrée de revenu
 app.post('/api/revenues', async (req, res) => {
   try {
-    const { product, date, amount } = req.body;
+    const { product, date, amount ,password } = req.body;
 
-    if (!product || !date || amount == null) {
+    if (!product || !date || amount == null || !password) {
       return res.status(400).json({ error: 'Champs manquants' });
+    }
+    
+    if (password !== '1234535') {
+      console.log('Tentative avec mauvais mot de passe :', password);
+      return res.status(401).json({ error: 'Mot de passe incorrect ❌' });
+      // ⚠️ LE "return" EST OBLIGATOIRE ICI
     }
 
     const revenue = new Revenue({
@@ -52,6 +58,9 @@ app.post('/api/revenues', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Erreur serveur' });
+
+    
+
   }
 });
 

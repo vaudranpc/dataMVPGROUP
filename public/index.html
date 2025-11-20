@@ -21,10 +21,27 @@
     </section>
 
     <!-- Graphique -->
-    <section class="panel">
+    <section class="graphs-row">
+  <section class="panel panel-graph">
+    <div class="panel-header">
       <h2>Évolution mensuelle (année en cours)</h2>
-      <canvas id="revenueChart"></canvas>
-    </section>
+      <span class="hint">Cliquer pour agrandir</span>
+    </div>
+    <canvas id="revenueChart"></canvas>
+  </section>
+
+  <section class="panel panel-graph">
+    <div class="panel-header">
+      <h2>Total mensuel (3 produits réunis – année en cours)</h2>
+      <span class="hint">Cliquer pour agrandir</span>
+    </div>
+    <canvas id="totalRevenueChart"></canvas>
+  </section>
+</section>
+
+<!-- Backdrop pour l’agrandissement -->
+<div id="graph-backdrop"></div>
+
 
     <!-- Tableau détaillé -->
     <section class="panel">
@@ -68,6 +85,11 @@
           <label for="amount">Montant ($)</label>
           <input type="number" id="amount" step="0.01" min="0" required />
         </div>
+
+        <div class="form-row">
+  <label for="password">Mot de passe</label>
+  <input type="password" id="password" required />
+</div>
 
         <button type="submit">Enregistrer le revenu</button>
         <p id="form-message" class="form-message"></p>
