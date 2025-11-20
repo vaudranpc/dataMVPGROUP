@@ -21,7 +21,7 @@ function setupForm() {
     const amount = document.getElementById('amount').value;
 
     try {
-      const res = await fetch('/api/revenues', {
+      const res = await fetch('https://datamvpgroup.onrender.com/api/revenues', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product, date, amount })
@@ -48,7 +48,7 @@ function setupForm() {
 
 async function loadSummary() {
   try {
-    const res = await fetch('/api/summary');
+    const res = await fetch('https://datamvpgroup.onrender.com/api/summary');
     if (!res.ok) throw new Error('Erreur chargement summary');
     const data = await res.json();
 
