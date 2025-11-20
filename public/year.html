@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue annuelle – Dashboard Revenus</title>
+  <link rel="stylesheet" href="year.css" />
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+  <div class="header-top">
+    <div>
+      <h1>Vue annuelle des revenus</h1>
+      <p>Politik 225 · MVP Foot · Radio MVP Foot</p>
+    </div>
+  </div>
+
+
+  <nav class="navbar">
+  <a href="index.html">Dashboard</a>
+  <a href="year.html" class="active">Vue annuelle</a>
+  <a href="stat.html">Évolution par années</a>
+</nav>
+</header>
+
+  <main class="container">
+
+    <!-- Sélection d'année -->
+    <section class="panel">
+      <h2>Choisir une année</h2>
+      <div class="form-row" style="max-width:240px;">
+        <label for="year-select">Année</label>
+        <select id="year-select">
+          <!-- Rempli par JS -->
+        </select>
+      </div>
+      <p id="year-info" style="margin-top:0.5rem;font-size:0.9rem;color:#9ca3af;"></p>
+    </section>
+
+    <!-- Résumé par produit -->
+    <section class="panel">
+      <h2>Résumé annuel par produit</h2>
+      <table id="year-summary-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Total annuel ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rempli par JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tableau mensuel (comme ton tableau pivot) -->
+    <section class="panel">
+      <h2>Revenus mensuels (année sélectionnée)</h2>
+      <table id="year-monthly-table">
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th>Politik 225</th>
+            <th>MVP Foot</th>
+            <th>Radio MVP Foot</th>
+            <th>Total mois</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rempli par JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Détail brut des entrées -->
+    <section class="panel">
+      <h2>Détails des entrées (année sélectionnée)</h2>
+      <table id="year-raw-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Produit</th>
+            <th>Montant ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rempli par JS -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Dashboard MVP – Vue annuelle</small>
+  </footer>
+
+  <script src="year.js"></script>
+</body>
+</html>

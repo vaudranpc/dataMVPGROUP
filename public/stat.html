@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Évolution annuelle – Dashboard Revenus</title>
+  <link rel="stylesheet" href="year.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <div>
+        <h1>Évolution annuelle des revenus</h1>
+        <p>Politik 225 · MVP Foot · Radio MVP Foot</p>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Dashboard</a>
+      <a href="year.html">Vue annuelle</a>
+      <a href="years.html" class="active">Évolution par années</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="panel">
+      <h2>Revenus annuels par produit & total</h2>
+      <p style="font-size:0.85rem;color:#9ca3af;margin-bottom:0.5rem;">
+        Graphique montrant, pour chaque année, le total annuel de chaque produit et le total global.
+      </p>
+      <canvas id="yearsChart"></canvas>
+    </section>
+
+    <section class="panel">
+      <h2>Tableau récapitulatif annuel</h2>
+      <table id="years-table">
+        <thead>
+          <tr>
+            <th>Année</th>
+            <th>Politik 225</th>
+            <th>MVP Foot</th>
+            <th>Radio MVP Foot</th>
+            <th>Total 3 produits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rempli par JS -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <small>Dashboard MVP – Évolution annuelle</small>
+  </footer>
+
+  <script src="stat.js"></script>
+</body>
+</html>
