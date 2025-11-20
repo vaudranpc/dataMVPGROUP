@@ -1,0 +1,194 @@
+/* public/styles.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 1.5rem 2rem;
+  background: #020617;
+  border-bottom: 1px solid #1f2937;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.header p {
+  margin-top: 0.25rem;
+  color: #9ca3af;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #020617;
+  border-radius: 1rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid #1f2937;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.card small {
+  color: #9ca3af;
+}
+
+.card-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  gap: 0.5rem;
+}
+
+.card-values div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-values span.label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.card-values span.value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.fluctuation {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.fluctuation.positive {
+  color: #22c55e;
+}
+
+.fluctuation.negative {
+  color: #ef4444;
+}
+
+.panel {
+  background: #020617;
+  border-radius: 1rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid #1f2937;
+}
+
+.panel h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+#revenue-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+#revenue-table th,
+#revenue-table td {
+  padding: 0.6rem 0.4rem;
+  text-align: left;
+  border-bottom: 1px solid #1f2937;
+  font-size: 0.9rem;
+}
+
+#revenue-table th {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+#revenue-table tr:nth-child(even) {
+  background: #020617;
+}
+
+#revenue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-row label {
+  font-size: 0.9rem;
+}
+
+.form-row input,
+.form-row select {
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+button[type="submit"] {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: #f97316;
+  color: #111827;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+button[type="submit"]:hover {
+  background: #fb923c;
+  box-shadow: 0 10px 20px rgba(248, 113, 113, 0.4);
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.form-message {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: #6b7280;
+  border-top: 1px solid #1f2937;
+  background: #020617;
+  font-size: 0.8rem;
+}

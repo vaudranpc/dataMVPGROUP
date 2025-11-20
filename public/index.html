@@ -1,0 +1,82 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Revenus – MVP</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Dashboard Revenus – MVP</h1>
+    <p>Politik 225 · MVP Foot · Radio MVP Foot</p>
+  </header>
+
+  <main class="container">
+    <!-- Cartes de synthèse -->
+    <section class="cards" id="cards-container">
+      <!-- Rempli par JS -->
+    </section>
+
+    <!-- Graphique -->
+    <section class="panel">
+      <h2>Évolution mensuelle (année en cours)</h2>
+      <canvas id="revenueChart"></canvas>
+    </section>
+
+    <!-- Tableau détaillé -->
+    <section class="panel">
+      <h2>Tableau des revenus par mois et par produit</h2>
+      <table id="revenue-table">
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th>Produit</th>
+            <th>Revenu total ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rempli par JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Formulaire d'ajout de revenu -->
+    <section class="panel">
+      <h2>Ajouter un revenu</h2>
+      <form id="revenue-form">
+        <div class="form-row">
+          <label for="product">Produit</label>
+          <select id="product" required>
+            <option value="">-- Choisir --</option>
+            <option value="Politik 225">Politik 225</option>
+            <option value="MVP Foot">MVP Foot</option>
+            <option value="Radio MVP Foot">Radio MVP Foot</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+        </div>
+
+        <div class="form-row">
+          <label for="amount">Montant ($)</label>
+          <input type="number" id="amount" step="0.01" min="0" required />
+        </div>
+
+        <button type="submit">Enregistrer le revenu</button>
+        <p id="form-message" class="form-message"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Dashboard MVP – données stockées dans MongoDB</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
